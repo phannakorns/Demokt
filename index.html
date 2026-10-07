@@ -18,7 +18,7 @@
     .content{flex:1;overflow-y:auto;padding:12px 13px 88px;scrollbar-width:none}
     .content::-webkit-scrollbar{display:none}
 
-    /* Switch Plan Toggle (ย้ายไปแท็บภาพรวม) */
+    /* Switch Plan Toggle */
     .plan-switch{display:flex;background:#e2e8f0;border-radius:14px;padding:3px;margin-bottom:12px}
     .plan-tab{flex:1;text-align:center;padding:8px 0;font-size:11px;font-weight:800;border-radius:11px;cursor:pointer;color:#64748b;transition:.2s}
     .plan-tab.active{background:#fff;color:#00A3E0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
@@ -93,8 +93,19 @@
     .cat-row{margin-bottom:9px;font-size:10px}
     .cat-bar-wrap{height:5px;background:#eee;border-radius:4px;overflow:hidden;margin-top:4px}
     .cat-bar{height:100%;background:#222;border-radius:4px;transition:width 0.4s ease}
-    .chk-row{display:flex;justify-content:space-between;align-items:center;padding:8px 9px;background:#f7f7f4;border-radius:10px;margin-bottom:5px;font-size:11px}
-    .chk-done{text-decoration:line-through;color:#aaa}
+
+    /* Debt Checklist Section */
+    .debt-check-item{display:flex;align-items:flex-start;justify-content:space-between;padding:9px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:7px;cursor:pointer;transition:.2s}
+    .debt-check-item.active-debt{background:#fff1f2;border-color:#fecdd3}
+    .debt-check-left{display:flex;align-items:flex-start;gap:8px}
+    .debt-check-left input{margin-top:3px;cursor:pointer}
+    .debt-info-title{font-size:11px;font-weight:800;color:#1e293b}
+    .debt-info-sub{font-size:9px;color:#64748b;margin-top:1px}
+    .debt-badge{font-size:9.5px;font-weight:800;padding:3px 7px;border-radius:8px}
+    .badge-high{background:#fee2e2;color:#b91c1c}
+    .badge-med{background:#fef3c7;color:#b45309}
+    .badge-low{background:#e0f2fe;color:#0369a1}
+    .debt-stat-banner{background:#fff7ed;border:1px solid #ffedd5;padding:10px;border-radius:12px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
 
     /* VIEW 4: Overview Chart */
     .overview-hero{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:16px;padding:11px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -169,7 +180,7 @@
     <!-- Contents -->
     <div class="content" id="screen-container">
       
-      <!-- SCREEN 1: HOME (คลีน สวยงาม เริ่มจาก Goal ปลดหนี้ทันทีตามรูปต้นแบบ) -->
+      <!-- SCREEN 1: HOME -->
       <div id="view-home">
 
         <!-- CRM Notification (เด้งเตือนเมื่อโอนเกิน) -->
@@ -183,7 +194,7 @@
               ระบบ Box Cash พบยอดสังสรรค์จ่าย 1,600 บ. (เกินโควตา 100 บ.) <b>ส่งผลให้เป้าหมายปลดหนี้เลื่อนออกไปอีก 2 เดือน!</b>
             </div>
             <div class="crm-btn-row">
-              <button class="btn-crm-act" onclick="resolveOverspend()">ย้าย 1,000 ไปโปะหนี้คืนแผนเดิม</button>
+              <button class="btn-crm-act" onclick="resolveOverspend()">ย้าย 100 ไปโปะหนี้คืนแผนเดิม</button>
               <button class="btn-crm-sec" onclick="dismissAlert()">ยอมรับให้เลื่อน</button>
             </div>
           </div>
@@ -231,7 +242,7 @@
           <span>ดูทั้งหมด · ＋ สร้าง</span>
         </div>
         <div class="box-cash-list">
-          <!-- กล่องที่ 1: หนี้ -->
+          <!-- กล่องที่ 1: หหนี้ -->
           <div class="box-cash-card" onclick="openGoalModal()">
             <div class="box-cash-icon" style="background:#fee2e2; color:#ef4444;">💳</div>
             <div class="box-cash-main">
@@ -250,7 +261,7 @@
               <div class="box-cash-meta" id="pocket-daily-meta">งบเดือนนี้ 9,000 บาท (คุมงบแล้ว)</div>
               <div class="progress"><div id="pocket-daily-bar" style="width:40%; background:#0284c7;"></div></div>
             </div>
-            <div class="box-cash-amount" id="pocket-daily-val">6,600<br><span class="box-cash-target">คงเหลือ</span></div>
+            <div class="box-cash-amount" id="pocket-daily-val">6,200<br><span class="box-cash-target">คงเหลือ</span></div>
           </div>
 
           <!-- กล่องที่ 3: ประจำ -->
@@ -343,8 +354,8 @@
             <span style="color:#64748b;">เงินที่เหลือใช้ต่อวัน</span>
             <span style="color:#00A3E0; font-size:11px;">เหลือ 18 วัน</span>
           </div>
-          <div class="daily-val" id="daily-allowance-txt">366 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span></div>
-          <div style="font-size:11px; color:#94a3b8;" id="daily-remain-txt">คงเหลือ 6,600 บาท จากงบกินอยู่ 9,000 บาท</div>
+          <div class="daily-val" id="daily-allowance-txt">344 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span></div>
+          <div style="font-size:11px; color:#94a3b8;" id="daily-remain-txt">คงเหลือ 6,200 บาท จากงบกินอยู่ 9,000 บาท</div>
         </div>
 
         <!-- Box Cash Bar Split Overview -->
@@ -368,12 +379,86 @@
           </div>
         </div>
 
+        <!-- แบบสอบถามเช็กลิสต์หนี้ที่เป็นอยู่และบอก % ดอกเบี้ยที่สูง -->
+        <div class="card" id="debt-checklist-card">
+          <div class="card-head">
+            <span>📋 แบบสอบถามเช็กลิสต์หนี้ปัจจุบัน</span>
+            <span style="font-size:10px; color:#00A3E0; font-weight:700;">AI วิเคราะห์อัตโนมัติ</span>
+          </div>
+          <div style="font-size:10.5px; color:#64748b; margin-bottom:10px; line-height:1.4;">
+            เลือกรายการหนี้สินที่คุณมีอยู่ในปัจจุบันเพื่อประเมินความเสี่ยงและลำดับการปลดหนี้ดอกเบี้ยสูง:
+          </div>
+
+          <div class="debt-check-item active-debt" id="item-card-credit" onclick="toggleDebtItem('credit')">
+            <div class="debt-check-left">
+              <input type="checkbox" id="chk-credit" checked onchange="event.stopPropagation(); recalcDebtSurvey();">
+              <div>
+                <div class="debt-info-title">หนี้บัตรเครดิต (Credit Card)</div>
+                <div class="debt-info-sub">ยอดปัจจุบัน 168,000 บ. (จ่ายขั้นต่ำสะสม)</div>
+              </div>
+            </div>
+            <span class="debt-badge badge-high">ดอกเบี้ย 16% ต่อปี (สูง)</span>
+          </div>
+
+          <div class="debt-check-item" id="item-card-cash" onclick="toggleDebtItem('cash')">
+            <div class="debt-check-left">
+              <input type="checkbox" id="chk-cash" onchange="event.stopPropagation(); recalcDebtSurvey();">
+              <div>
+                <div class="debt-info-title">บัตรกดเงินสด / สินเชื่อส่วนบุคคล</div>
+                <div class="debt-info-sub">ดอกเบี้ยคำนวณรายวันตามยอดกด</div>
+              </div>
+            </div>
+            <span class="debt-badge badge-high">ดอกเบี้ย 25% ต่อปี (สูงสุด)</span>
+          </div>
+
+          <div class="debt-check-item" id="item-card-bnpl" onclick="toggleDebtItem('bnpl')">
+            <div class="debt-check-left">
+              <input type="checkbox" id="chk-bnpl" onchange="event.stopPropagation(); recalcDebtSurvey();">
+              <div>
+                <div class="debt-info-title">PayLater / ผ่อนชำระสินค้าออนไลน์</div>
+                <div class="debt-info-sub">ผ่อนระยะสั้น 3-6 เดือนหลายรายการ</div>
+              </div>
+            </div>
+            <span class="debt-badge badge-high">ดอกเบี้ย 15-25% ต่อปี (สูง)</span>
+          </div>
+
+          <div class="debt-check-item" id="item-card-car" onclick="toggleDebtItem('car')">
+            <div class="debt-check-left">
+              <input type="checkbox" id="chk-car" onchange="event.stopPropagation(); recalcDebtSurvey();">
+              <div>
+                <div class="debt-info-title">สินเชื่อเช่าซื้อรถยนต์ / มอเตอร์ไซค์</div>
+                <div class="debt-info-sub">อัตราดอกเบี้ยแบบคงที่ (Flat Rate)</div>
+              </div>
+            </div>
+            <span class="debt-badge badge-med">ดอกเบี้ย ~5.5-9% (เทียบเท่าปานกลาง)</span>
+          </div>
+
+          <div class="debt-check-item" id="item-card-home" onclick="toggleDebtItem('home')">
+            <div class="debt-check-left">
+              <input type="checkbox" id="chk-home" onchange="event.stopPropagation(); recalcDebtSurvey();">
+              <div>
+                <div class="debt-info-title">สินเชื่อที่อยู่อาศัย / กู้ กยศ.</div>
+                <div class="debt-info-sub">มีหลักประกัน / อัตราดอกเบี้ยนโยบายรัฐ</div>
+              </div>
+            </div>
+            <span class="debt-badge badge-low">ดอกเบี้ย ~1-4.5% ต่อปี (ต่ำ)</span>
+          </div>
+
+          <div class="debt-stat-banner" id="debt-analysis-summary">
+            <div>
+              <div style="font-size:11px; font-weight:800; color:#c2410c;">⚠️ พบหนี้กลุ่มดอกเบี้ยสูง 16% ต่อปี</div>
+              <div style="font-size:9.5px; color:#9a3412; margin-top:2px;">AI แนะนำ: โฟกัสโปะกล่องนี้ก่อนเพื่อลดภาระดอกเบี้ยทบต้น</div>
+            </div>
+            <button class="cash-action primary" style="font-size:9.5px; padding:6px 10px;" onclick="scrollToGoal()">ดูแผนโปะ</button>
+          </div>
+        </div>
+
       </div>
 
-      <!-- SCREEN 4: ภาพรวม (ย้ายส่วน Toggle สลับโหมด + BINGO Goals 3 ระยะ มาไว้ที่นี่) -->
+      <!-- SCREEN 4: ภาพรวม -->
       <div id="view-overview" style="display:none;">
         
-        <!-- Toggle ก่อนวางแผน vs หลังวางแผน ย้ายมาที่นี่ -->
+        <!-- Toggle ก่อนวางแผน vs หลังวางแผน -->
         <div class="plan-switch">
           <div class="plan-tab" id="tab-plan-before" onclick="applyPlanScenario('before')">ก่อนวางแผน (จ่ายปกติ)</div>
           <div class="plan-tab active" id="tab-plan-after" onclick="applyPlanScenario('after')">หลังวางแผน (AI จัดงบ)</div>
@@ -385,7 +470,7 @@
           <span id="mode-status-text">BINGO AI วางแผนแล้ว: ปลดหนี้ไวขึ้น 5 เดือน มีเงินออมและประกันครบ</span>
         </div>
 
-        <!-- Goals แบนเนอร์ 3 ระยะ ย้ายมาที่นี่ -->
+        <!-- Goals แบนเนอร์ 3 ระยะ -->
         <div class="goal-banner" id="goal-banner-roadmap">
           <div class="goal-banner-top">
             <div class="goal-avatar" id="goal-banner-avatar">🌱</div>
@@ -422,6 +507,7 @@
           <div class="pie-wrap">
             <div class="donut-chart" id="donut-element">
               <div class="donut-hole">
+                <!-- คงยอดภาพรวม 40,000 บาทเสมอ -->
                 <div class="val" id="donut-center-val">40,000</div>
                 <div class="lbl">บาท/เดือน</div>
               </div>
@@ -445,14 +531,12 @@
 
       <!-- SCREEN 2: INSURANCE (KRUNGTHAI-AXA) -->
       <div id="view-insurance" style="display:none;">
-        <!-- Header Banner -->
         <div style="background:linear-gradient(135deg, #00008F, #1e3a8a); color:#fff; border-radius:18px; padding:15px; margin-bottom:12px;">
           <div style="font-size:9px; text-transform:uppercase; color:#93c5fd; font-weight:700;">ร่วมกับ Krungthai-AXA</div>
           <div style="font-size:16px; font-weight:800; margin-top:2px;">ประกันแผน</div>
           <div style="font-size:10px; opacity:0.85; margin-top:3px;">คุ้มครองแผนปลดหนี้/ลงทุน ไม่ให้พังเพราะเรื่องไม่คาดฝัน</div>
         </div>
 
-        <!-- กล่องคำแนะนำน้องกล่อง -->
         <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:12px; margin-bottom:12px; display:flex; gap:11px; align-items:center;">
           <div style="width:42px; height:42px; background:#e0f2fe; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🌱</div>
           <div>
@@ -463,11 +547,9 @@
           </div>
         </div>
 
-        <!-- การวิเคราะห์ความคุ้มครองของฉัน -->
         <div class="card">
           <div class="card-head">แผนที่มีความคุ้มครองของฉัน</div>
           
-          <!-- 1. ประกันสังคม -->
           <div style="padding:10px; background:#f0fdf4; border-radius:12px; margin-bottom:8px; border:1px solid #bbf7d0;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:11px; font-weight:700; color:#15803d;">✔ ประกันสังคม</span>
@@ -476,7 +558,6 @@
             <div style="font-size:9.5px; color:#166534; margin-top:2px;">ค่ารักษาพื้นฐาน และเงินชดเชยบางส่วนเมื่อว่างงาน</div>
           </div>
 
-          <!-- 2. ประกันกลุ่มบริษัท -->
           <div style="padding:10px; background:#fefce8; border-radius:12px; margin-bottom:8px; border:1px solid #fef08a;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:11px; font-weight:700; color:#854d0e;">⚠️ ประกันกลุ่มของบริษัท</span>
@@ -485,7 +566,6 @@
             <div style="font-size:9.5px; color:#713f12; margin-top:2px;">ค่ารักษาตามวงเงิน แต่หายไปทันทีเมื่อเปลี่ยนที่ทำงาน</div>
           </div>
 
-          <!-- 3. ค่างวดหนี้ -->
           <div style="padding:10px; background:#fff1f2; border-radius:12px; margin-bottom:8px; border:1px solid #fecdd3;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:11px; font-weight:700; color:#be123c;">✖ ค่างวดหนี้ 12,000 บาท/เดือน</span>
@@ -494,7 +574,6 @@
             <div style="font-size:9.5px; color:#9f1239; margin-top:2px;">ยังไม่มีอะไรรองรับ ถ้าเจ็บป่วยจนทำงานไม่ได้</div>
           </div>
 
-          <!-- 4. ค่ารักษาพ่อแม่ -->
           <div style="padding:10px; background:#fff1f2; border-radius:12px; border:1px solid #fecdd3;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:11px; font-weight:700; color:#be123c;">✖ ค่ารักษาของพ่อแม่</span>
@@ -504,11 +583,9 @@
           </div>
         </div>
 
-        <!-- แผนประกันที่แนะนำ -->
         <div class="card">
           <div class="card-head">แผนประกันที่แนะนำ</div>
           
-          <!-- แผน 1 -->
           <div style="padding:10px 0; border-bottom:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="font-size:12px; font-weight:800; color:#1e293b;">① Life Ready</div>
@@ -517,7 +594,6 @@
             <button class="btn-blue" style="width:auto; padding:6px 12px; font-size:10px;" onclick="scrollToConsultForm('Life Ready')">จิ้มดูแผน</button>
           </div>
 
-          <!-- แผน 2 -->
           <div style="padding:10px 0; border-bottom:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="font-size:12px; font-weight:800; color:#1e293b;">② iLink</div>
@@ -526,7 +602,6 @@
             <button class="btn-blue" style="width:auto; padding:6px 12px; font-size:10px;" onclick="scrollToConsultForm('iLink')">จิ้มดูแผน</button>
           </div>
 
-          <!-- แผน 3 -->
           <div style="padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="font-size:12px; font-weight:800; color:#1e293b;">③ iWealthy</div>
@@ -536,7 +611,6 @@
           </div>
         </div>
 
-        <!-- ฟอร์มปรึกษาผู้เชี่ยวชาญด้านประกันชีวิต -->
         <div class="card" id="consult-form-box" style="margin-bottom:24px;">
           <div style="font-size:13.5px; font-weight:850; color:#1e3a8a; margin-bottom:10px; text-align:center;">
             ปรึกษาผู้เชี่ยวชาญด้านประกันชีวิต
@@ -624,7 +698,7 @@
         </div>
       </div>
       <div class="chat-input-bar">
-        <input type="text" id="chat-user-input" class="chat-input" placeholder="พิมพ์คุยกับน้องนก เช่น ย้าย 1000 ไปโปะหนี้..." onkeypress="handleChatEnter(event)">
+        <input type="text" id="chat-user-input" class="chat-input" placeholder="พิมพ์คุยกับน้องนก เช่น ย้าย 100 ไปโปะหนี้..." onkeypress="handleChatEnter(event)">
         <button class="chat-send-btn" onclick="sendUserMessage()">➤</button>
       </div>
     </div>
@@ -700,6 +774,7 @@
     let currentSelectedCategory = 'party';
     let isOverspent = false;
     let cashboxBalance = 40000;
+    const totalMonthlyIncome = 40000; // มูลค่าภาพรวมคงที่ 40,000 เสมอ
 
     const chartDataImage2 = [
       { label: 'ปลดหนี้', pct: 30, color: '#f97316' },
@@ -752,6 +827,8 @@
           </div>
         `;
       });
+      // คงยอดภาพรวมตรงกลางโดนัทไว้ที่ 40,000 เสมอ
+      document.getElementById('donut-center-val').innerText = totalMonthlyIncome.toLocaleString();
     }
 
     function openTransferModal() {
@@ -805,7 +882,7 @@
 
       cashboxBalance -= amt;
       document.getElementById('cashbox-total-txt').innerHTML = `${cashboxBalance.toLocaleString()} <small>บาท</small>`;
-      document.getElementById('donut-center-val').innerText = cashboxBalance.toLocaleString();
+      // ยอด donut-center-val ยังคงเป็น 40,000 บาทเท่าเดิมตามโจทย์ข้อ 1
 
       if (currentSelectedCategory === 'party' && amt >= 1600) {
         isOverspent = true;
@@ -822,14 +899,14 @@
         document.getElementById('cat-over-flag').innerText = 'ใช้ไป 4,400 / 9,000 (เกินงบ 100 บ.)';
         document.getElementById('cat-over-flag').style.color = '#e11d48';
 
-        document.getElementById('pocket-daily-val').innerHTML = '5,000<br><span class="box-cash-target">คงเหลือ</span>';
-        document.getElementById('daily-allowance-txt').innerHTML = '277 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
-        document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 5,000 บาท จากงบกินอยู่ 9,000 บาท';
+        document.getElementById('pocket-daily-val').innerHTML = '4,600<br><span class="box-cash-target">คงเหลือ</span>';
+        document.getElementById('daily-allowance-txt').innerHTML = '255 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
+        document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 4,600 บาท จากงบกินอยู่ 9,000 บาท';
 
         document.getElementById('goal-months-badge').innerText = 'อีก 11 เดือน (เลื่อนออกไป 2 เดือน)';
         document.getElementById('goal-months-badge').style.color = '#e11d48';
-        document.getElementById('debt-pay-rate').innerText = '17,000';
-        document.getElementById('dsr-label').innerText = 'ภาระหนี้ 42.5% (DSR)';
+        document.getElementById('debt-pay-rate').innerText = '17,900';
+        document.getElementById('dsr-label').innerText = 'ภาระหนี้ 44.7% (DSR)';
         document.getElementById('dsr-label').style.color = '#f59e0b';
         document.getElementById('goal-progress-fill').style.width = '52%';
         document.getElementById('goal-progress-fill').style.background = '#e11d48';
@@ -841,7 +918,7 @@
         const msgBox = document.getElementById('chat-messages');
         const bMsg = document.createElement('div');
         bMsg.className = 'msg msg-bot';
-        bMsg.innerHTML = `⚠️ <b>แจ้งเตือนด่วน:</b> น้องนกตรวจพบการโอนเงินหมวดปาร์ตี้ 1,600 บาท ทำให้เกินงบมา 100 บาท ส่งผลให้แผนปลดหนี้ของพี่เลื่อนออกไปอีก <b>2 เดือนเต็ม</b> ครับ! แนะนำให้กดปุ่มย้ายเงินโปะหนี้เพื่อดึงแผนกลับมาครับ`;
+        bMsg.innerHTML = `⚠️ <b>แจ้งเตือนด่วน:</b> น้องนกตรวจพบการโอนเงินหมวดปาร์ตี้ 1,600 บาท ทำให้เกินงบมา 100 บาท ส่งผลให้แผนปลดหนี้ของพี่เลื่อนออกไปอีก <b>2 เดือนเต็ม</b> ครับ! แนะนำให้กดปุ่มย้าย 100 บาทไปโปะหนี้เพื่อดึงแผนกลับมาครับ`;
         msgBox.appendChild(bMsg);
 
         alert(`โอนเงินสำเร็จ 1,600 บาท!\n\n⚠️ CRM Alert: ตรวจพบยอดสังสรรค์เกินงบ 100 บาท เชื่อมโยงระบบทำให้เป้าหมายปลดหนี้เลื่อนออกไป 2 เดือน`);
@@ -850,6 +927,7 @@
       }
     }
 
+    // แก้ไขฟังก์ชันโปะหนี้เป็น 100 บาทตามโจทย์ข้อ 2
     function resolveOverspend() {
       isOverspent = false;
       document.getElementById('crm-overspend-alert').style.display = 'none';
@@ -866,6 +944,10 @@
       document.getElementById('pocket-debt-val').innerHTML = '18,000<br><span class="box-cash-target">บาท</span>';
       document.getElementById('pocket-debt-bar').style.width = '58%';
 
+      document.getElementById('pocket-daily-val').innerHTML = '6,200<br><span class="box-cash-target">คงเหลือ</span>';
+      document.getElementById('daily-allowance-txt').innerHTML = '344 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
+      document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 6,200 บาท จากงบกินอยู่ 9,000 บาท';
+
       document.getElementById('cat-title-party').innerText = 'สังสรรค์ / ปาร์ตี้ (คุมงบชดเชยแล้ว)';
       document.getElementById('cat-title-party').style.color = '#1e293b';
       document.getElementById('cat-val-party').innerText = '1,500 / 1,500 บ.';
@@ -875,7 +957,7 @@
       document.getElementById('cat-over-flag').style.color = '#16a34a';
 
       renderPieChart(chartDataImage2);
-      alert('ย้าย 1,000 บาท ไปยังกล่องปลดหนี้เรียบร้อย! เป้าหมายปลดหนี้กลับมาสำเร็จใน 9 เดือนตามเดิมแล้วครับ');
+      alert('ย้าย 100 บาท ไปยังกล่องปลดหนี้เรียบร้อย! เป้าหมายปลดหนี้กลับมาสำเร็จใน 9 เดือนตามเดิมแล้วครับ');
     }
 
     function dismissAlert() {
@@ -907,13 +989,11 @@
         tabB.classList.add('active');
         tabA.classList.remove('active');
 
-        // แบนเนอร์เตือนสีแดงในหน้าภาพรวม
         banner.className = 'mode-status-banner mode-before';
         bannerText.innerHTML = '⚠️ ก่อนวางแผน: จ่ายตามยอดขั้นต่ำ 12,000 บ. (ปลดหนี้ช้า 14 เดือน) <b>ไม่มีเงินออม ไม่มีประกัน</b>';
 
         document.getElementById('crm-overspend-alert').style.display = 'none';
 
-        // ปรับหน้าหลักให้สะท้อนผลก่อนวางแผน
         document.getElementById('goal-months-badge').innerText = 'อีก 14 เดือน (จ่ายขั้นต่ำ)';
         document.getElementById('goal-months-badge').style.color = '#991b1b';
         document.getElementById('debt-pay-rate').innerText = '12,000';
@@ -932,7 +1012,7 @@
         document.getElementById('daily-allowance-txt').innerHTML = '600 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
         document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 11,000 บาท จากงบใช้จ่าย 18,000 บาท';
 
-        // ล็อกกล่องออม (0 บาท)
+        // ล็อกกล่องออม
         cardSave.classList.add('locked');
         iconSave.style.background = '#f1f5f9';
         iconSave.style.color = '#94a3b8';
@@ -943,7 +1023,7 @@
         barSave.style.width = '0%';
         valSave.innerHTML = '0<br><span class="box-cash-target">บาท</span>';
 
-        // ล็อกกล่องประกัน (0 บาท)
+        // ล็อกกล่องประกัน
         cardIns.classList.add('locked');
         iconIns.style.background = '#f1f5f9';
         iconIns.style.color = '#94a3b8';
@@ -968,11 +1048,9 @@
         tabA.classList.add('active');
         tabB.classList.remove('active');
 
-        // แบนเนอร์สีเขียวในหน้าภาพรวม
         banner.className = 'mode-status-banner mode-after';
         bannerText.innerHTML = '✨ BINGO AI วางแผนแล้ว: ปลดหนี้ไวขึ้น 5 เดือน มีเงินออมและประกันครบ';
 
-        // ปรับหน้าหลักให้สะท้อนผลหลังวางแผน
         document.getElementById('goal-months-badge').innerText = 'อีก 9 เดือน (เร็วขึ้น 5 เดือน)';
         document.getElementById('goal-months-badge').style.color = '#16a34a';
         document.getElementById('debt-pay-rate').innerText = '18,000';
@@ -986,10 +1064,10 @@
         document.getElementById('pocket-debt-bar').style.width = '58%';
 
         document.getElementById('pocket-daily-meta').innerText = 'งบเดือนนี้ 9,000 บาท (คุมงบแล้ว)';
-        document.getElementById('pocket-daily-val').innerHTML = '6,600<br><span class="box-cash-target">คงเหลือ</span>';
+        document.getElementById('pocket-daily-val').innerHTML = '6,200<br><span class="box-cash-target">คงเหลือ</span>';
         document.getElementById('pocket-daily-bar').style.width = '40%';
-        document.getElementById('daily-allowance-txt').innerHTML = '366 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
-        document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 6,600 บาท จากงบกินอยู่ 9,000 บาท';
+        document.getElementById('daily-allowance-txt').innerHTML = '344 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
+        document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 6,200 บาท จากงบกินอยู่ 9,000 บาท';
 
         // ปลดล็อกกล่องออม
         cardSave.classList.remove('locked');
@@ -1025,6 +1103,64 @@
       }
     }
 
+    // ฟังก์ชันจัดการแบบสอบถามเช็กลิสต์หนี้
+    function toggleDebtItem(type) {
+      const chk = document.getElementById('chk-' + type);
+      chk.checked = !chk.checked;
+      recalcDebtSurvey();
+    }
+
+    function recalcDebtSurvey() {
+      const debts = [
+        { id: 'cash', name: 'บัตรกดเงินสด/สินเชื่อบุคคล', rate: 25, high: true },
+        { id: 'credit', name: 'บัตรเครดิต KTB', rate: 16, high: true },
+        { id: 'bnpl', name: 'PayLater ออนไลน์', rate: 15, high: true },
+        { id: 'car', name: 'สินเชื่อรถยนต์', rate: 7.5, high: false },
+        { id: 'home', name: 'สินเชื่อบ้าน/กยศ.', rate: 3.5, high: false }
+      ];
+
+      let selectedHighDebts = [];
+      let maxRate = 0;
+      let maxName = '';
+
+      debts.forEach(d => {
+        const itemEl = document.getElementById('item-card-' + d.id);
+        const chk = document.getElementById('chk-' + d.id);
+        if (chk.checked) {
+          itemEl.classList.add('active-debt');
+          if (d.rate > maxRate) {
+            maxRate = d.rate;
+            maxName = d.name;
+          }
+          if (d.high) selectedHighDebts.push(d);
+        } else {
+          itemEl.classList.remove('active-debt');
+        }
+      });
+
+      const summary = document.getElementById('debt-analysis-summary');
+      if (maxRate > 0) {
+        summary.innerHTML = `
+          <div>
+            <div style="font-size:11px; font-weight:800; color:#c2410c;">⚠️ พบหนี้อัตราดอกเบี้ยสูงสุด: ${maxRate}% ต่อปี (${maxName})</div>
+            <div style="font-size:9.5px; color:#9a3412; margin-top:2px;">AI แนะนำ: โฟกัสโปะกลุ่มหนี้ดอกเบี้ยสูงกว่า 15% เป็นลำดับแรกเพื่อป้องกันหนี้บานปลาย</div>
+          </div>
+          <button class="cash-action primary" style="font-size:9.5px; padding:6px 10px;" onclick="scrollToGoal()">ดูแผนโปะ</button>
+        `;
+      } else {
+        summary.innerHTML = `
+          <div>
+            <div style="font-size:11px; font-weight:800; color:#15803d;">🎉 ปลอดหนี้สิน หรือไม่ได้เลือกรายการใด</div>
+            <div style="font-size:9.5px; color:#166534; margin-top:2px;">คุณสามารถจัดสรรเงินเข้ากล่องออมฉุกเฉินและลงทุนได้เต็มที่</div>
+          </div>
+        `;
+      }
+    }
+
+    function scrollToGoal() {
+      document.getElementById('main-goal-card').scrollIntoView({ behavior: 'smooth' });
+    }
+
     function navTo(tab) {
       document.getElementById('view-home').style.display = 'none';
       document.getElementById('view-overview').style.display = 'none';
@@ -1058,9 +1194,9 @@
       setTimeout(() => {
         const bMsg = document.createElement('div');
         bMsg.className = 'msg msg-bot';
-        if (text.includes('ย้าย') || text.includes('1000') || text.includes('โปะหนี้')) {
+        if (text.includes('ย้าย') || text.includes('100') || text.includes('โปะหนี้')) {
           resolveOverspend();
-          bMsg.innerText = 'น้องนกช่วยย้ายเงิน 1,000 บาท ไปโปะหนี้ให้แล้วครับ! ตอนนี้เป้าหมายปลดหนี้ดึงกลับมาเหลือ 9 เดือนตามเดิมแล้วครับ';
+          bMsg.innerText = 'น้องนกช่วยย้ายเงิน 100 บาท ไปโปะหนี้ให้แล้วครับ! ตอนนี้เป้าหมายปลดหนี้ดึงกลับมาเหลือ 9 เดือนตามเดิมแล้วครับ';
         } else {
           bMsg.innerText = 'น้องนกรับทราบครับ ระบบกำลังเชื่อมโยงการแจ้งเตือนไปยังแอป Krungthai NEXT ให้อย่างต่อเนื่องครับ!';
         }
@@ -1071,6 +1207,7 @@
 
     window.onload = function() {
       renderPieChart(chartDataImage2);
+      recalcDebtSurvey();
     };
   </script>
 </body>
