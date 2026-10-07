@@ -445,39 +445,131 @@
 
       <!-- SCREEN 2: INSURANCE (KRUNGTHAI-AXA) -->
       <div id="view-insurance" style="display:none;">
+        <!-- Header Banner -->
         <div style="background:linear-gradient(135deg, #00008F, #1e3a8a); color:#fff; border-radius:18px; padding:15px; margin-bottom:12px;">
           <div style="font-size:9px; text-transform:uppercase; color:#93c5fd; font-weight:700;">ร่วมกับ Krungthai-AXA</div>
-          <div style="font-size:16px; font-weight:800; margin-top:2px;">ประกันแผน คุ้มครอง</div>
-          <div style="font-size:10px; opacity:0.85; margin-top:3px;">คุ้มครองแบบประหยัดเพื่อครบ ไม่ให้สะดุดเพราะเรื่องไม่คาดฝัน</div>
+          <div style="font-size:16px; font-weight:800; margin-top:2px;">ประกันแผน</div>
+          <div style="font-size:10px; opacity:0.85; margin-top:3px;">คุ้มครองแผนปลดหนี้/ลงทุน ไม่ให้พังเพราะเรื่องไม่คาดฝัน</div>
         </div>
 
+        <!-- กล่องคำแนะนำน้องกล่อง -->
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:12px; margin-bottom:12px; display:flex; gap:11px; align-items:center;">
+          <div style="width:42px; height:42px; background:#e0f2fe; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🌱</div>
+          <div>
+            <div style="font-size:11.5px; font-weight:800; color:#0284c7; margin-bottom:2px;">น้องกล่อง</div>
+            <div style="font-size:10px; color:#475569; line-height:1.45;">
+              ถ้าป่วยจนทำงานไม่ได้ 1 เดือน จะขาดค่างวด 12,000 บาท และวันปลดหนี้เลื่อนออกไป 2 เดือน มาดูกันว่ายังขาดความคุ้มครองตรงไหน
+            </div>
+          </div>
+        </div>
+
+        <!-- การวิเคราะห์ความคุ้มครองของฉัน -->
         <div class="card">
-          <div class="card-head">แผนที่มีความคุ้มครองรองรับ</div>
+          <div class="card-head">แผนที่มีความคุ้มครองของฉัน</div>
+          
+          <!-- 1. ประกันสังคม -->
           <div style="padding:10px; background:#f0fdf4; border-radius:12px; margin-bottom:8px; border:1px solid #bbf7d0;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:11px; font-weight:700; color:#15803d;">✔ ประกันสังคม</span>
               <span style="font-size:9px; font-weight:700; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:10px;">🟢 มีแล้ว</span>
             </div>
-            <div style="font-size:10px; color:#166534; margin-top:2px;">ค่ารักษาพื้นฐาน และสิทธิชดเชยตามเงื่อนไข</div>
+            <div style="font-size:9.5px; color:#166534; margin-top:2px;">ค่ารักษาพื้นฐาน และเงินชดเชยบางส่วนเมื่อว่างงาน</div>
           </div>
-          <div style="padding:10px; background:#fff1f2; border-radius:12px; border:1px solid #fecdd3;">
+
+          <!-- 2. ประกันกลุ่มบริษัท -->
+          <div style="padding:10px; background:#fefce8; border-radius:12px; margin-bottom:8px; border:1px solid #fef08a;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
-              <span style="font-size:11px; font-weight:700; color:#e11d48;">✖ ค่ารักษาของพ่อแม่</span>
+              <span style="font-size:11px; font-weight:700; color:#854d0e;">⚠️ ประกันกลุ่มของบริษัท</span>
+              <span style="font-size:9px; font-weight:700; background:#fef9c3; color:#a16207; padding:2px 6px; border-radius:10px;">🟡 ชั่วคราว</span>
+            </div>
+            <div style="font-size:9.5px; color:#713f12; margin-top:2px;">ค่ารักษาตามวงเงิน แต่หายไปทันทีเมื่อเปลี่ยนที่ทำงาน</div>
+          </div>
+
+          <!-- 3. ค่างวดหนี้ -->
+          <div style="padding:10px; background:#fff1f2; border-radius:12px; margin-bottom:8px; border:1px solid #fecdd3;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:11px; font-weight:700; color:#be123c;">✖ ค่างวดหนี้ 12,000 บาท/เดือน</span>
               <span style="font-size:9px; font-weight:700; background:#ffe4e6; color:#e11d48; padding:2px 6px; border-radius:10px;">เสี่ยงสูง</span>
             </div>
-            <div style="font-size:10px; color:#be123c; margin-top:2px;">ยังไม่มีคลุม อาจกระทบเงินก้อนปลดหนี้</div>
+            <div style="font-size:9.5px; color:#9f1239; margin-top:2px;">ยังไม่มีอะไรรองรับ ถ้าเจ็บป่วยจนทำงานไม่ได้</div>
+          </div>
+
+          <!-- 4. ค่ารักษาพ่อแม่ -->
+          <div style="padding:10px; background:#fff1f2; border-radius:12px; border:1px solid #fecdd3;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:11px; font-weight:700; color:#be123c;">✖ ค่ารักษาของพ่อแม่</span>
+              <span style="font-size:9px; font-weight:700; background:#ffe4e6; color:#e11d48; padding:2px 6px; border-radius:10px;">เสี่ยงสูง</span>
+            </div>
+            <div style="font-size:9.5px; color:#9f1239; margin-top:2px;">ถ้าเกิดเหตุ อาจต้องรูดบัตรจนเป็นหนี้ก้อนใหม่</div>
           </div>
         </div>
 
+        <!-- แผนประกันที่แนะนำ -->
         <div class="card">
           <div class="card-head">แผนประกันที่แนะนำ</div>
-          <div style="padding:8px 0; border-bottom:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">
+          
+          <!-- แผน 1 -->
+          <div style="padding:10px 0; border-bottom:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="font-size:12px; font-weight:800; color:#1e293b;">① Life Ready</div>
-              <div style="font-size:10px; color:#64748b;">คุ้มครองชีวิตตลอดชีพ ล็อกความเสี่ยงหนี้</div>
+              <div style="font-size:10px; color:#64748b; margin-top:2px;">คุ้มครองชีวิตตลอดชีพ ล็อกความเสี่ยงหนี้</div>
             </div>
-            <button class="btn-blue" style="width:auto; padding:5px 12px; font-size:10px;">จิ้มดูแผน</button>
+            <button class="btn-blue" style="width:auto; padding:6px 12px; font-size:10px;" onclick="scrollToConsultForm('Life Ready')">จิ้มดูแผน</button>
           </div>
+
+          <!-- แผน 2 -->
+          <div style="padding:10px 0; border-bottom:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:12px; font-weight:800; color:#1e293b;">② iLink</div>
+              <div style="font-size:10px; color:#64748b; margin-top:2px;">ประกันควบการลงทุน ปกป้องพร้อมเติบโต</div>
+            </div>
+            <button class="btn-blue" style="width:auto; padding:6px 12px; font-size:10px;" onclick="scrollToConsultForm('iLink')">จิ้มดูแผน</button>
+          </div>
+
+          <!-- แผน 3 -->
+          <div style="padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:12px; font-weight:800; color:#1e293b;">③ iWealthy</div>
+              <div style="font-size:10px; color:#64748b; margin-top:2px;">วางแผนการเงินและความมั่งคั่งระยะยาว</div>
+            </div>
+            <button class="btn-blue" style="width:auto; padding:6px 12px; font-size:10px;" onclick="scrollToConsultForm('iWealthy')">จิ้มดูแผน</button>
+          </div>
+        </div>
+
+        <!-- ฟอร์มปรึกษาผู้เชี่ยวชาญด้านประกันชีวิต -->
+        <div class="card" id="consult-form-box" style="margin-bottom:24px;">
+          <div style="font-size:13.5px; font-weight:850; color:#1e3a8a; margin-bottom:10px; text-align:center;">
+            ปรึกษาผู้เชี่ยวชาญด้านประกันชีวิต
+          </div>
+
+          <label class="field-label">ชื่อ - นามสกุล</label>
+          <input type="text" class="input-box" placeholder="ตัวอย่าง: นายกรุงไทย ตอกย้ำ">
+
+          <label class="field-label">หมายเลขโทรศัพท์ติดต่อ</label>
+          <input type="tel" class="input-box" placeholder="ตัวอย่าง: 081 xxx xxxx">
+
+          <label class="field-label">อีเมล</label>
+          <input type="email" class="input-box" placeholder="ตัวอย่าง: ktaxa@gmail.com">
+
+          <label class="field-label">จังหวัด</label>
+          <select class="input-box" style="color:#475569;">
+            <option value="">เลือกจังหวัด</option>
+            <option value="bangkok">กรุงเทพมหานคร</option>
+            <option value="khonkaen">ขอนแก่น</option>
+            <option value="chiangmai">เชียงใหม่</option>
+            <option value="other">จังหวัดอื่นๆ</option>
+          </select>
+
+          <div style="display:flex; align-items:center; gap:7px; margin:11px 0 14px;">
+            <input type="checkbox" id="chk-terms" style="cursor:pointer;">
+            <label for="chk-terms" style="font-size:9.5px; color:#64748b; cursor:pointer;">
+              การยอมรับเงื่อนไขและข้อกำหนด <span style="color:#0284c7; text-decoration:underline;">อ่านรายละเอียด →</span>
+            </label>
+          </div>
+
+          <button class="btn-blue" style="background:#00008F;" onclick="alert('ส่งข้อมูลให้ผู้เชี่ยวชาญ Krungthai-AXA ติดต่อกลับเรียบร้อยแล้วครับ')">
+            ส่งข้อมูล
+          </button>
         </div>
       </div>
 
