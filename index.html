@@ -18,12 +18,17 @@
     .content{flex:1;overflow-y:auto;padding:12px 13px 88px;scrollbar-width:none}
     .content::-webkit-scrollbar{display:none}
 
-    /* Switch Plan Toggle */
+    /* Switch Plan Toggle (ย้ายไปแท็บภาพรวม) */
     .plan-switch{display:flex;background:#e2e8f0;border-radius:14px;padding:3px;margin-bottom:12px}
-    .plan-tab{flex:1;text-align:center;padding:7px 0;font-size:11px;font-weight:800;border-radius:11px;cursor:pointer;color:#64748b;transition:.2s}
-    .plan-tab.active{background:#fff;color:#00A3E0;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+    .plan-tab{flex:1;text-align:center;padding:8px 0;font-size:11px;font-weight:800;border-radius:11px;cursor:pointer;color:#64748b;transition:.2s}
+    .plan-tab.active{background:#fff;color:#00A3E0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 
-    /* CRM Alert Box (N - Notification เตือนพร้อมบอกผลต่อเป้าหมาย) */
+    /* Mode Banner */
+    .mode-status-banner{border-radius:14px;padding:9px 12px;font-size:11px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .mode-before{background:#fef2f2;border:1px solid #fecdd3;color:#991b1b}
+    .mode-after{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+
+    /* CRM Alert Box */
     .crm-alert-box{background:#fff1f2;border:1.5px solid #fecdd3;border-radius:20px;padding:13px;margin-bottom:12px;display:none;gap:11px;align-items:flex-start;animation:slideDown 0.3s ease}
     @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
     .crm-avatar{width:44px;height:44px;background:#ffe4e6;border:2px solid #fda4af;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
@@ -44,10 +49,10 @@
     .stage-item.current{background:#fff;color:#1e3a8a;font-weight:800}
 
     /* Goal Hero Card */
-    .goal-card{background:#fff;border:1px solid #ecece8;border-radius:18px;padding:13px;margin-bottom:10px;cursor:pointer}
+    .goal-card{background:#fff;border:1px solid #ecece8;border-radius:18px;padding:13px;margin-bottom:10px;cursor:pointer;transition:border-color 0.3s}
     .goal-tag{font-size:9px;font-weight:850;background:#f0f0eb;padding:4px 7px;border-radius:7px;color:#555}
 
-    /* MAKE-inspired Cashbox */
+    /* Cashbox */
     .cashbox{background:#fff;border-radius:22px;padding:16px;margin-bottom:12px;border:1px solid #ecece8;box-shadow:0 2px 9px rgba(0,0,0,.035)}
     .cashbox-top{display:flex;justify-content:space-between;align-items:flex-start}
     .eyebrow{font-size:10px;color:#777;font-weight:700}
@@ -60,12 +65,13 @@
     .quick{border:0;background:#eef9fc;border-radius:13px;padding:8px 4px;font-size:9px;font-weight:700;color:#444;cursor:pointer}
     .quick-icon{display:block;font-size:17px;margin-bottom:3px}
 
-    /* Box Cash cards (แทน Cloud Pocket) */
+    /* Box Cash cards */
     .section-head{display:flex;justify-content:space-between;align-items:center;margin:14px 3px 8px}
     .section-head b{font-size:14px;color:#1e293b}
     .section-head span{font-size:10px;color:#777}
     .box-cash-list{display:flex;flex-direction:column;gap:8px}
-    .box-cash-card{background:#fff;border:1px solid #ecece8;border-radius:18px;padding:11px;display:flex;gap:11px;align-items:center;cursor:pointer;box-shadow:0 2px 7px rgba(0,0,0,.025)}
+    .box-cash-card{background:#fff;border:1px solid #ecece8;border-radius:18px;padding:11px;display:flex;gap:11px;align-items:center;cursor:pointer;box-shadow:0 2px 7px rgba(0,0,0,.025);transition:background 0.3s}
+    .box-cash-card.locked{background:#f8fafc;border-style:dashed}
     .box-cash-icon{width:46px;height:46px;border:1px solid #e1f1f6;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:22px;flex:none}
     .box-cash-main{min-width:0;flex:1}
     .box-cash-name{font-size:12px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -73,14 +79,15 @@
     .box-cash-amount{text-align:right;font-size:12px;font-weight:850}
     .box-cash-target{font-size:9px;color:#888;font-weight:500;margin-top:2px}
     .progress{height:5px;background:#eee;border-radius:5px;overflow:hidden;margin-top:7px}
-    .progress>div{height:100%;border-radius:5px}
+    .progress>div{height:100%;border-radius:5px;transition:width 0.4s ease}
     .add-box-cash{border:1.5px dashed #c9c9c3;background:transparent;box-shadow:none;justify-content:center;color:#666;font-weight:800;font-size:11px;padding:14px}
 
-    /* Cards & Categorical List */
+    /* Cards & Analytics */
     .card{background:#fff;border-radius:18px;padding:13px 14px;margin-bottom:10px;border:1px solid #ecece8;box-shadow:0 2px 7px rgba(0,0,0,.025)}
     .card-head{display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#333;margin-bottom:8px}
     .daily-val{font-size:29px;font-weight:900;color:#222;line-height:1;margin:4px 0}
     .bar-split{display:flex;height:10px;border-radius:8px;overflow:hidden;background:#eee;margin:8px 0 10px}
+    .bar-split>div{transition:width 0.4s ease}
     .grid-wallets{display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:10px}
     .wallet-box{background:#f7f7f4;border:1px solid #ededE8;padding:8px;border-radius:11px;display:flex;justify-content:space-between;gap:5px}
     .cat-row{margin-bottom:9px;font-size:10px}
@@ -89,11 +96,10 @@
     .chk-row{display:flex;justify-content:space-between;align-items:center;padding:8px 9px;background:#f7f7f4;border-radius:10px;margin-bottom:5px;font-size:11px}
     .chk-done{text-decoration:line-through;color:#aaa}
 
-    /* VIEW 4: ภาพรวม พายกราฟ */
+    /* VIEW 4: Overview Chart */
     .overview-hero{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:16px;padding:11px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
     .overview-hero-icon{font-size:20px;color:#16a34a}
     .overview-hero-text{font-size:10.5px;color:#15803d;line-height:1.4}
-
     .pie-card{background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;border:1px solid #ecece8;box-shadow:0 2px 9px rgba(0,0,0,.035)}
     .pie-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
     .pie-wrap{display:flex;justify-content:center;align-items:center;position:relative;margin:10px 0 16px}
@@ -106,7 +112,7 @@
     .legend-left{display:flex;align-items:center;gap:6px}
     .legend-dot{width:9px;height:9px;border-radius:50%}
 
-    /* AI Floating Mascot */
+    /* Floating Mascot & Drawer */
     .mascot{position:absolute;bottom:76px;right:13px;width:54px;height:54px;background:#00A3E0;border:3px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 7px 20px rgba(0,0,0,.18);cursor:pointer;z-index:40;animation:floatWidget 2.2s infinite ease-in-out;overflow:hidden}
     @keyframes floatWidget{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     .ai-drawer{position:absolute;left:0;right:0;bottom:64px;height:520px;background:#fff;border-top-left-radius:25px;border-top-right-radius:25px;display:none;flex-direction:column;box-shadow:0 -12px 35px rgba(0,0,0,.18);border-top:1px solid #e5e5e0;z-index:50;overflow:hidden}
@@ -119,20 +125,18 @@
     .chat-input{flex:1;border:1px solid #d7d7d2;border-radius:20px;padding:8px 13px;font-size:11px;outline:none}
     .chat-send-btn{background:#00A3E0;border:none;color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer}
 
-    /* Modal Styles */
+    /* Modals */
     .modal-wrap{position:absolute;inset:0;background:rgba(20,20,20,.52);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
     .modal-box{background:#fff;border-radius:24px;padding:20px;width:100%;max-height:90%;overflow-y:auto}
     .input-box{width:100%;border:1px solid #d8d8d3;border-radius:11px;padding:9px 10px;font-size:11px;outline:none;background:#fff}
     .field-label{font-size:10px;font-weight:800;color:#555;margin-top:9px;display:block;margin-bottom:4px}
     .btn-blue{background:#00A3E0;color:#fff;border:none;border-radius:12px;padding:10px 14px;font-size:11px;font-weight:800;cursor:pointer;width:100%}
     .btn-secondary{background:none;border:none;color:#777;font-size:11px;margin-top:8px;cursor:pointer;width:100%}
-
-    /* Transfer Category Selector Pill */
     .cat-selector{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 12px}
     .cat-pill{border:1px solid #e2e8f0;padding:8px 6px;border-radius:10px;text-align:center;font-size:10px;font-weight:700;color:#475569;cursor:pointer;transition:.15s}
     .cat-pill.selected{border-color:#00A3E0;background:#e0f5fc;color:#0284c7;font-weight:800}
 
-    /* Bottom navigation (4 Tabs: หน้าหลัก, ภาพรวม, แผนประกัน, การลงทุน) */
+    /* Bottom Nav */
     .bottom-nav{position:absolute;bottom:0;left:0;right:0;height:64px;background:#fff;border-top:1px solid #e5e5e0;display:flex;justify-content:space-around;align-items:center;z-index:30}
     .nav-btn{background:none;border:0;display:flex;flex-direction:column;align-items:center;font-size:9px;font-weight:700;color:#999;cursor:pointer;gap:3px;min-width:60px}
     .nav-btn.active{color:#00A3E0}
@@ -165,16 +169,10 @@
     <!-- Contents -->
     <div class="content" id="screen-container">
       
-      <!-- SCREEN 1: HOME -->
+      <!-- SCREEN 1: HOME (คลีน สวยงาม เริ่มจาก Goal ปลดหนี้ทันทีตามรูปต้นแบบ) -->
       <div id="view-home">
-        
-        <!-- Toggle ก่อนวางแผน vs หลังวางแผน -->
-        <div class="plan-switch">
-          <div class="plan-tab" id="tab-plan-before" onclick="applyPlanScenario('before')">ก่อนวางแผน (จ่ายปกติ)</div>
-          <div class="plan-tab active" id="tab-plan-after" onclick="applyPlanScenario('after')">หลังวางแผน (AI จัดงบ)</div>
-        </div>
 
-        <!-- CRM Notification: เตือนพร้อมบอกผลต่อเป้าหมาย -->
+        <!-- CRM Notification (เด้งเตือนเมื่อโอนเกิน) -->
         <div class="crm-alert-box" id="crm-overspend-alert">
           <div class="crm-avatar">⚠️</div>
           <div>
@@ -191,26 +189,10 @@
           </div>
         </div>
 
-        <!-- Goals แบนเนอร์ 3 ระยะ -->
-        <div class="goal-banner">
-          <div class="goal-banner-top">
-            <div class="goal-avatar">🌱</div>
-            <div class="goal-banner-txt">
-              <b>น้องกล่อง · BINGO Goals</b>
-              เย่! จ่ายตรงเวลา 6 งวดติดแล้ว ได้ดอกเบี้ยคืนเอาไปลงทุนต่อ 5 บาท เข้ากล่องออม/ลงทุนแล้วนะ
-            </div>
-          </div>
-          <div class="goal-stages">
-            <div class="stage-item current">ระยะ 1 · สำเร็จ<br>สร้างรากฐาน</div>
-            <div class="stage-item">ระยะ 2 · ถัดไป<br>สะสม</div>
-            <div class="stage-item">ระยะ 3 · ถัดไป<br>ลงทุนสร้างมั่งคั่ง</div>
-          </div>
-        </div>
-
-        <!-- เป้าหมายหลัก (Goal Card) -->
-        <div class="goal-card" onclick="openGoalModal()">
+        <!-- 1. เป้าหมายหลัก (Goal Card) -->
+        <div class="goal-card" onclick="openGoalModal()" id="main-goal-card" style="border:1.5px solid #00A3E0;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="goal-tag">🎯 Goal ปลดหนี้บัตรเครดิต KTB</span>
+            <span class="goal-tag" id="goal-card-tag">🎯 Goal ปลดหนี้บัตรเครดิต KTB</span>
             <span style="font-size:11px; font-weight:800; color:#16a34a;" id="goal-months-badge">อีก 9 เดือน (ตามแผน AI)</span>
           </div>
           <div style="font-size:14px; font-weight:800; margin-top:5px;" id="goal-title-txt">ยอดหนี้คงค้าง 168,000 บาท</div>
@@ -223,7 +205,7 @@
           </div>
         </div>
 
-        <!-- CASHBOX -->
+        <!-- 2. CASHBOX -->
         <div class="cashbox">
           <div class="cashbox-top">
             <div>
@@ -243,12 +225,13 @@
           </div>
         </div>
 
-        <!-- Box Cash (แทน Cloud Pocket) -->
+        <!-- 3. Box Cash List -->
         <div class="section-head">
           <b>Box Cash</b>
           <span>ดูทั้งหมด · ＋ สร้าง</span>
         </div>
         <div class="box-cash-list">
+          <!-- กล่องที่ 1: หนี้ -->
           <div class="box-cash-card" onclick="openGoalModal()">
             <div class="box-cash-icon" style="background:#fee2e2; color:#ef4444;">💳</div>
             <div class="box-cash-main">
@@ -259,16 +242,18 @@
             <div class="box-cash-amount" id="pocket-debt-val">18,000<br><span class="box-cash-target">บาท</span></div>
           </div>
 
+          <!-- กล่องที่ 2: รายวัน -->
           <div class="box-cash-card" onclick="openTransferWithCategory('party')">
             <div class="box-cash-icon" style="background:#e0f2fe; color:#0284c7;">🍚</div>
             <div class="box-cash-main">
               <div class="box-cash-name">ค่าใช้จ่ายรายวัน (กดโอนได้)</div>
-              <div class="box-cash-meta" id="pocket-daily-meta">งบเดือนนี้ 9,000 บาท</div>
+              <div class="box-cash-meta" id="pocket-daily-meta">งบเดือนนี้ 9,000 บาท (คุมงบแล้ว)</div>
               <div class="progress"><div id="pocket-daily-bar" style="width:40%; background:#0284c7;"></div></div>
             </div>
             <div class="box-cash-amount" id="pocket-daily-val">6,600<br><span class="box-cash-target">คงเหลือ</span></div>
           </div>
 
+          <!-- กล่องที่ 3: ประจำ -->
           <div class="box-cash-card">
             <div class="box-cash-icon" style="background:#f1f5f9; color:#475569;">🏠</div>
             <div class="box-cash-main">
@@ -279,22 +264,24 @@
             <div class="box-cash-amount">10,000<br><span class="box-cash-target">บาท</span></div>
           </div>
 
-          <div class="box-cash-card">
-            <div class="box-cash-icon" style="background:#dcfce7; color:#16a34a;">🌱</div>
+          <!-- กล่องที่ 4: ออมฉุกเฉิน -->
+          <div class="box-cash-card" id="card-pocket-save">
+            <div class="box-cash-icon" id="icon-pocket-save" style="background:#dcfce7; color:#16a34a;">🌱</div>
             <div class="box-cash-main">
-              <div class="box-cash-name">ออมฉุกเฉิน / ลงทุน</div>
-              <div class="box-cash-meta">KT-MONEY เพื่อสำรอง 3 เดือน</div>
-              <div class="progress"><div style="width:35%; background:#16a34a;"></div></div>
+              <div class="box-cash-name" id="name-pocket-save">ออมฉุกเฉิน / ลงทุน</div>
+              <div class="box-cash-meta" id="meta-pocket-save">KT-MONEY สำรอง 3 เดือน</div>
+              <div class="progress"><div id="bar-pocket-save" style="width:35%; background:#16a34a;"></div></div>
             </div>
             <div class="box-cash-amount" id="pocket-save-val">2,000<br><span class="box-cash-target">บาท</span></div>
           </div>
 
-          <div class="box-cash-card">
-            <div class="box-cash-icon" style="background:#e0e7ff; color:#4338ca;">🛡️</div>
+          <!-- กล่องที่ 5: ประกัน Krungthai-AXA -->
+          <div class="box-cash-card" id="card-pocket-ins">
+            <div class="box-cash-icon" id="icon-pocket-ins" style="background:#e0e7ff; color:#4338ca;">🛡️</div>
             <div class="box-cash-main">
-              <div class="box-cash-name">ประกัน Krungthai-AXA</div>
-              <div class="box-cash-meta">ป้องกันความเสี่ยงหลุดแผน</div>
-              <div class="progress"><div style="width:100%; background:#4338ca;"></div></div>
+              <div class="box-cash-name" id="name-pocket-ins">ประกัน Krungthai-AXA</div>
+              <div class="box-cash-meta" id="meta-pocket-ins">ป้องกันความเสี่ยงหลุดแผน</div>
+              <div class="progress"><div id="bar-pocket-ins" style="width:100%; background:#4338ca;"></div></div>
             </div>
             <div class="box-cash-amount" id="pocket-ins-val">1,000<br><span class="box-cash-target">บาท</span></div>
           </div>
@@ -306,15 +293,15 @@
         <div class="card" style="margin-top:12px;">
           <div class="card-head">
             <span>ใช้จ่ายรายวัน (Daily Expenses)</span>
-            <span style="color:#e11d48; font-size:11px;" id="cat-over-flag">ใช้เกินงบรวม 1,000 บ.</span>
+            <span style="color:#64748b; font-size:11px;" id="cat-over-flag">ใช้ไป 2,800 / 9,000</span>
           </div>
           
           <div class="cat-row">
             <div style="display:flex; justify-content:space-between;">
-              <span style="color:#e11d48; font-weight:700;" id="cat-title-over">ใช้เกินงบรวม (เกินงบ 1,000 บ.)</span>
-              <b id="cat-val-over" style="color:#e11d48;">2,500 / 1,500 บ.</b>
+              <span style="color:#1e293b; font-weight:700;" id="cat-title-party">สังสรรค์ / ปาร์ตี้</span>
+              <b id="cat-val-party">0 / 1,500 บ.</b>
             </div>
-            <div class="cat-bar-wrap"><div class="cat-bar" id="cat-bar-over" style="width:100%; background:#e11d48;"></div></div>
+            <div class="cat-bar-wrap"><div class="cat-bar" id="cat-bar-party" style="width:0%; background:#0284c7;"></div></div>
           </div>
 
           <div class="cat-row">
@@ -383,8 +370,37 @@
 
       </div>
 
-      <!-- SCREEN 4: ภาพรวม (พายกราฟวงกลม ตามรูปที่สอง) -->
+      <!-- SCREEN 4: ภาพรวม (ย้ายส่วน Toggle สลับโหมด + BINGO Goals 3 ระยะ มาไว้ที่นี่) -->
       <div id="view-overview" style="display:none;">
+        
+        <!-- Toggle ก่อนวางแผน vs หลังวางแผน ย้ายมาที่นี่ -->
+        <div class="plan-switch">
+          <div class="plan-tab" id="tab-plan-before" onclick="applyPlanScenario('before')">ก่อนวางแผน (จ่ายปกติ)</div>
+          <div class="plan-tab active" id="tab-plan-after" onclick="applyPlanScenario('after')">หลังวางแผน (AI จัดงบ)</div>
+        </div>
+
+        <!-- Mode Indicator Banner -->
+        <div class="mode-status-banner mode-after" id="mode-status-banner">
+          <span>✨</span>
+          <span id="mode-status-text">BINGO AI วางแผนแล้ว: ปลดหนี้ไวขึ้น 5 เดือน มีเงินออมและประกันครบ</span>
+        </div>
+
+        <!-- Goals แบนเนอร์ 3 ระยะ ย้ายมาที่นี่ -->
+        <div class="goal-banner" id="goal-banner-roadmap">
+          <div class="goal-banner-top">
+            <div class="goal-avatar" id="goal-banner-avatar">🌱</div>
+            <div class="goal-banner-txt">
+              <b id="goal-banner-title">น้องกล่อง · BINGO Goals</b>
+              <span id="goal-banner-desc">เย่! จ่ายตรงเวลา 6 งวดติดแล้ว ได้ดอกเบี้ยคืนเอาไปลงทุนต่อ 5 บาท เข้ากล่องออม/ลงทุนแล้วนะ</span>
+            </div>
+          </div>
+          <div class="goal-stages">
+            <div class="stage-item current" id="stage-1-badge">ระยะ 1 · สำเร็จ<br>สร้างรากฐาน</div>
+            <div class="stage-item">ระยะ 2 · ถัดไป<br>สะสม</div>
+            <div class="stage-item">ระยะ 3 · ถัดไป<br>ลงทุนสร้างมั่งคั่ง</div>
+          </div>
+        </div>
+
         <div class="overview-hero">
           <div class="overview-hero-icon">✓</div>
           <div class="overview-hero-text">
@@ -393,6 +409,7 @@
           </div>
         </div>
 
+        <!-- พายกราฟ Donut Chart -->
         <div class="pie-card">
           <div class="pie-header">
             <div>
@@ -484,18 +501,14 @@
 
     <!-- Floating Mascot -->
     <div class="mascot" onclick="toggleAI()">
-      <img src="mascot.jpg" 
-           alt="Mascot" 
-           style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      <img src="mascot.jpg" alt="Mascot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
     </div>
 
     <!-- AI CHATBOT -->
     <div class="ai-drawer" id="ai-drawer">
       <div class="chat-header">
         <div style="display:flex; align-items:center; gap:8px;">
-          <img src="mascot.jpg" 
-               alt="AI Mascot" 
-               style="width: 26px; height: 26px; object-fit: cover; border-radius: 50%;">
+          <img src="mascot.jpg" alt="AI Mascot" style="width: 26px; height: 26px; object-fit: cover; border-radius: 50%;">
           <div>
             <div style="font-size:12px; font-weight:800; color:#1e293b;">น้องนกวายุภักษ์ AI Assistant</div>
             <div style="font-size:9px; color:#10b981; font-weight:600;">● ระบบเชื่อมโยงข้อมูล CRM & Box Cash</div>
@@ -514,7 +527,7 @@
       </div>
     </div>
 
-    <!-- MODAL 1: โอนเงินพร้อมจิ้มเลือกหมวดหมู่ -->
+    <!-- MODAL 1: โอนเงิน -->
     <div class="modal-wrap" id="transfer-modal">
       <div class="modal-box">
         <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -607,13 +620,11 @@
     ];
 
     const chartDataBefore = [
-      { label: 'จ่ายหนี้ขั้นต่ำ', pct: 20, color: '#94a3b8' },
-      { label: 'ใช้จ่ายตามใจ', pct: 45, color: '#38bdf8' },
-      { label: 'จ่ายประจำ', pct: 25, color: '#1d4ed8' },
-      { label: 'ครอบครัว', pct: 10, color: '#ec4899' },
-      { label: 'ฉุกเฉิน', pct: 0, color: '#e2e8f0' },
-      { label: 'ออม/ลงทุน', pct: 0, color: '#e2e8f0' },
-      { label: 'ประกัน', pct: 0, color: '#e2e8f0' }
+      { label: 'จ่ายหนี้ขั้นต่ำ', pct: 30, color: '#ef4444' },
+      { label: 'ใช้จ่ายรายวัน (ไม่มีแผน)', pct: 45, color: '#0284c7' },
+      { label: 'จ่ายประจำ', pct: 25, color: '#94a3b8' },
+      { label: 'ออมฉุกเฉิน (ไม่มี)', pct: 0, color: '#e2e8f0' },
+      { label: 'ประกัน (ไม่มี)', pct: 0, color: '#e2e8f0' }
     ];
 
     function renderPieChart(data) {
@@ -769,31 +780,146 @@
       document.getElementById('crm-overspend-alert').style.display = 'none';
     }
 
+    // ฟังก์ชันสลับโหมดก่อนวางแผน vs หลังวางแผน
     function applyPlanScenario(mode) {
       const tabB = document.getElementById('tab-plan-before');
       const tabA = document.getElementById('tab-plan-after');
+      const banner = document.getElementById('mode-status-banner');
+      const bannerText = document.getElementById('mode-status-text');
+
+      const cardSave = document.getElementById('card-pocket-save');
+      const iconSave = document.getElementById('icon-pocket-save');
+      const nameSave = document.getElementById('name-pocket-save');
+      const metaSave = document.getElementById('meta-pocket-save');
+      const barSave = document.getElementById('bar-pocket-save');
+      const valSave = document.getElementById('pocket-save-val');
+
+      const cardIns = document.getElementById('card-pocket-ins');
+      const iconIns = document.getElementById('icon-pocket-ins');
+      const nameIns = document.getElementById('name-pocket-ins');
+      const metaIns = document.getElementById('meta-pocket-ins');
+      const barIns = document.getElementById('bar-pocket-ins');
+      const valIns = document.getElementById('pocket-ins-val');
+
       if (mode === 'before') {
         tabB.classList.add('active');
         tabA.classList.remove('active');
+
+        // แบนเนอร์เตือนสีแดงในหน้าภาพรวม
+        banner.className = 'mode-status-banner mode-before';
+        bannerText.innerHTML = '⚠️ ก่อนวางแผน: จ่ายตามยอดขั้นต่ำ 12,000 บ. (ปลดหนี้ช้า 14 เดือน) <b>ไม่มีเงินออม ไม่มีประกัน</b>';
+
         document.getElementById('crm-overspend-alert').style.display = 'none';
-        document.getElementById('goal-months-badge').innerText = 'อีก 14 เดือน';
-        document.getElementById('goal-months-badge').style.color = '#64748b';
+
+        // ปรับหน้าหลักให้สะท้อนผลก่อนวางแผน
+        document.getElementById('goal-months-badge').innerText = 'อีก 14 เดือน (จ่ายขั้นต่ำ)';
+        document.getElementById('goal-months-badge').style.color = '#991b1b';
         document.getElementById('debt-pay-rate').innerText = '12,000';
+        document.getElementById('dsr-label').innerText = 'ภาระหนี้ 30% (เสี่ยงดอกเบี้ยสะสม)';
+        document.getElementById('dsr-label').style.color = '#ef4444';
+        document.getElementById('goal-progress-fill').style.width = '30%';
+        document.getElementById('goal-progress-fill').style.background = '#94a3b8';
+
+        document.getElementById('pocket-debt-meta').innerText = 'เป้าหมาย 168,000 บาท · อีก 14 เดือน';
+        document.getElementById('pocket-debt-val').innerHTML = '12,000<br><span class="box-cash-target">บาท</span>';
+        document.getElementById('pocket-debt-bar').style.width = '30%';
+
+        document.getElementById('pocket-daily-meta').innerText = 'งบเดือนนี้ 18,000 บาท (ไม่มีการคุมงบ)';
+        document.getElementById('pocket-daily-val').innerHTML = '11,000<br><span class="box-cash-target">คงเหลือ</span>';
+        document.getElementById('pocket-daily-bar').style.width = '61%';
+        document.getElementById('daily-allowance-txt').innerHTML = '600 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
+        document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 11,000 บาท จากงบใช้จ่าย 18,000 บาท';
+
+        // ล็อกกล่องออม (0 บาท)
+        cardSave.classList.add('locked');
+        iconSave.style.background = '#f1f5f9';
+        iconSave.style.color = '#94a3b8';
+        iconSave.innerText = '🔒';
+        nameSave.innerText = 'ออมฉุกเฉิน (ยังไม่เริ่ม)';
+        nameSave.style.color = '#94a3b8';
+        metaSave.innerText = 'ไม่มีเงินเก็บสำรอง';
+        barSave.style.width = '0%';
+        valSave.innerHTML = '0<br><span class="box-cash-target">บาท</span>';
+
+        // ล็อกกล่องประกัน (0 บาท)
+        cardIns.classList.add('locked');
+        iconIns.style.background = '#f1f5f9';
+        iconIns.style.color = '#94a3b8';
+        iconIns.innerText = '🔒';
+        nameIns.innerText = 'ประกันความเสี่ยง (ไม่มี)';
+        nameIns.style.color = '#94a3b8';
+        metaIns.innerText = 'เสี่ยงหลุดแผนหากเจ็บป่วย';
+        barIns.style.width = '0%';
+        valIns.innerHTML = '0<br><span class="box-cash-target">บาท</span>';
+
+        document.getElementById('bar-debt').style.width = '30%';
+        document.getElementById('bar-daily').style.width = '45%';
+        document.getElementById('bar-save').style.width = '0%';
+        document.getElementById('bar-ins').style.width = '0%';
+        document.getElementById('box-debt-txt').innerText = '12,000 บ.';
+        document.getElementById('box-daily-txt').innerText = '18,000 บ.';
+        document.getElementById('box-save-txt').innerText = '0 บ.';
+
         renderPieChart(chartDataBefore);
+
       } else {
         tabA.classList.add('active');
         tabB.classList.remove('active');
-        renderPieChart(isOverspent ? chartDataOverspent : chartDataImage2);
-        if (isOverspent) {
-          document.getElementById('crm-overspend-alert').style.display = 'flex';
-          document.getElementById('goal-months-badge').innerText = 'อีก 11 เดือน (เลื่อนออกไป 2 เดือน)';
-          document.getElementById('goal-months-badge').style.color = '#e11d48';
-          document.getElementById('debt-pay-rate').innerText = '17,000';
-        } else {
-          document.getElementById('goal-months-badge').innerText = 'อีก 9 เดือน (ตามแผน AI)';
-          document.getElementById('goal-months-badge').style.color = '#16a34a';
-          document.getElementById('debt-pay-rate').innerText = '18,000';
-        }
+
+        // แบนเนอร์สีเขียวในหน้าภาพรวม
+        banner.className = 'mode-status-banner mode-after';
+        bannerText.innerHTML = '✨ BINGO AI วางแผนแล้ว: ปลดหนี้ไวขึ้น 5 เดือน มีเงินออมและประกันครบ';
+
+        // ปรับหน้าหลักให้สะท้อนผลหลังวางแผน
+        document.getElementById('goal-months-badge').innerText = 'อีก 9 เดือน (เร็วขึ้น 5 เดือน)';
+        document.getElementById('goal-months-badge').style.color = '#16a34a';
+        document.getElementById('debt-pay-rate').innerText = '18,000';
+        document.getElementById('dsr-label').innerText = 'ภาระหนี้ 45% (DSR)';
+        document.getElementById('dsr-label').style.color = '#16a34a';
+        document.getElementById('goal-progress-fill').style.width = '58%';
+        document.getElementById('goal-progress-fill').style.background = '#00A3E0';
+
+        document.getElementById('pocket-debt-meta').innerText = 'เป้าหมาย 168,000 บาท · อีก 9 เดือน';
+        document.getElementById('pocket-debt-val').innerHTML = '18,000<br><span class="box-cash-target">บาท</span>';
+        document.getElementById('pocket-debt-bar').style.width = '58%';
+
+        document.getElementById('pocket-daily-meta').innerText = 'งบเดือนนี้ 9,000 บาท (คุมงบแล้ว)';
+        document.getElementById('pocket-daily-val').innerHTML = '6,600<br><span class="box-cash-target">คงเหลือ</span>';
+        document.getElementById('pocket-daily-bar').style.width = '40%';
+        document.getElementById('daily-allowance-txt').innerHTML = '366 <span style="font-size:14px; color:#64748b; font-weight:600;">บาท</span>';
+        document.getElementById('daily-remain-txt').innerText = 'คงเหลือ 6,600 บาท จากงบกินอยู่ 9,000 บาท';
+
+        // ปลดล็อกกล่องออม
+        cardSave.classList.remove('locked');
+        iconSave.style.background = '#dcfce7';
+        iconSave.style.color = '#16a34a';
+        iconSave.innerText = '🌱';
+        nameSave.innerText = 'ออมฉุกเฉิน / ลงทุน';
+        nameSave.style.color = '#1e293b';
+        metaSave.innerText = 'KT-MONEY สำรอง 3 เดือน';
+        barSave.style.width = '35%';
+        valSave.innerHTML = '2,000<br><span class="box-cash-target">บาท</span>';
+
+        // ปลดล็อกกล่องประกัน
+        cardIns.classList.remove('locked');
+        iconIns.style.background = '#e0e7ff';
+        iconIns.style.color = '#4338ca';
+        iconIns.innerText = '🛡️';
+        nameIns.innerText = 'ประกัน Krungthai-AXA';
+        nameIns.style.color = '#1e293b';
+        metaIns.innerText = 'ป้องกันความเสี่ยงหลุดแผน';
+        barIns.style.width = '100%';
+        valIns.innerHTML = '1,000<br><span class="box-cash-target">บาท</span>';
+
+        document.getElementById('bar-debt').style.width = '45%';
+        document.getElementById('bar-daily').style.width = '22.5%';
+        document.getElementById('bar-save').style.width = '5%';
+        document.getElementById('bar-ins').style.width = '2.5%';
+        document.getElementById('box-debt-txt').innerText = '18,000 บ.';
+        document.getElementById('box-daily-txt').innerText = '9,000 บ.';
+        document.getElementById('box-save-txt').innerText = '2,000 บ.';
+
+        renderPieChart(chartDataImage2);
       }
     }
 
